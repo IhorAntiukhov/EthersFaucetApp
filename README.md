@@ -1,8 +1,26 @@
-# React + Vite
+## Ethers Faucet App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React app that works with the **Ethereum Smart contract**.
 
-Currently, two official plugins are available:
+This application displays the token balance of your current network. You can mint USDTM tokens to a specific address.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Try the app demo](https://ethers-faucet-app.vercel.app/) running on Vercel.
+
+## Installation
+
+1. Install Node.js *(in case you haven't installed it)*.
+2. [Download the source code](https://github.com/IhorAntiukhov/ethers-faucet-app.git) and open a command prompt in the project's root folder.
+3. Install the dependencies needed for the application.
+
+```
+npm install
+```
+4. Start React project and development server.
+
+```
+npm run dev
+```
+
+## Libraries and tools
+
+This app was built using **Vite + React**, **Redux Toolkit**, **Ethers** and **Chakra UI**.   

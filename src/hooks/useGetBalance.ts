@@ -16,7 +16,7 @@ function useGetBalance() {
           const signer = await provider.getSigner();
           const accounts = await provider.send("eth_requestAccounts", []);
 
-          const contract = new ethers.Contract('0xA2119EC01313AF5c4c1225698bA670437DbBac46', ABI, signer);
+          const contract = new ethers.Contract(import.meta.env.VITE_CONTRACT_ADDRESS, ABI, signer);
           const balance = await contract.balanceOf(accounts[0]);
           const tokenSymbol = await contract.symbol();
 

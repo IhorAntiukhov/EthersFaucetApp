@@ -1,11 +1,12 @@
-import { useSelector } from 'react-redux';
 import {
   CardBody, Stack, Center, HStack, Spinner, Text
 } from '@chakra-ui/react';
+import useContractStore from '../store/contractStore';
+import useFormStore from '../store/formStore';
 
 function Balance() {
-  const { balance, tokenSymbol } = useSelector((state) => state.contractReducer);
-  const isLoading = useSelector((state) => state.formReducer.isLoading);
+  const { balance, tokenSymbol } = useContractStore((state) => state);
+  const isLoading = useFormStore((state) => state.isLoading);
 
   return (
     <CardBody>

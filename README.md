@@ -23,4 +23,4 @@ npm run dev
 
 ## Libraries and tools
 
-This app was built using **Vite + React**, **Redux Toolkit**, **Ethers** and **Chakra UI**.   
+This app was built using **Vite + React**, **TypeScript**, **Zustand**, **Ethers** and **Chakra UI**.   

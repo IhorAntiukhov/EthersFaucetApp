@@ -1,19 +1,18 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { ethers } from 'ethers';
+import useContractStore from '../store/contractStore';
 import useShowToast from './useShowToast';
-import { setInfo } from '../store/slices/contractSlice';
 import ABI from '../contract/ABI.json';
 
 function useGetBalance() {
-  const dispatch = useDispatch();
+  const setInfo = useContractStore((state) => state.setInfo);
   const showToast = useShowToast();
 
   useEffect(() => {
-    if (window.ethereum) {
+    if ((window as any).ethereum) {
       const getBalance = async () => {
         try {
-          const provider = new ethers.BrowserProvider(window.ethereum);
+          const provider = new ethers.BrowserProvider((window as any).ethereum);
           const signer = await provider.getSigner();
           const accounts = await provider.send("eth_requestAccounts", []);
 
@@ -21,7 +20,7 @@ function useGetBalance() {
           const balance = await contract.balanceOf(accounts[0]);
           const tokenSymbol = await contract.symbol();
 
-          dispatch(setInfo({ accounts, contract, balance, tokenSymbol }));
+          setInfo({ accounts, contract, balance, tokenSymbol });
         } catch (error) {
           showToast('Getting balance', 'Failed to get balance!');
         }
@@ -31,7 +30,7 @@ function useGetBalance() {
     } else {
       showToast('Getting balance', 'Ethereum wallet is not connected!');
     }
-  }, [dispatch, showToast]);
+  }, [showToast]);
 }
 
 export default useGetBalance;

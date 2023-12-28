@@ -3,7 +3,7 @@ import { FormStoreState, ChangeEvent, FormEvent } from '../types/formStoreState'
 
 const useFormStore = create<FormStoreState>((set) => ({
   isLoading: false,
-  useOwnAddress: false,
+  useOwnAddress: true,
   address: '',
   amount: '',
 

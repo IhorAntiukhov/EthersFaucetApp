@@ -25,13 +25,13 @@ function Form() {
       await tx.wait();
 
       balance = await contract?.balanceOf(ownAddress);
+      setBalance(balance);
 
       showToast('Minting USDTM', 'USDTM minting completed!', 'success');
     } catch (error) {
       showToast('Minting USDTM', 'Failed to perform mint operation or get balance!');
     }
 
-    setBalance(balance);
     setIsLoading(false);
   }
 
@@ -40,13 +40,13 @@ function Form() {
       <Stack spacing={4} width="100%">
         <FormControl display='flex' flexDirection={['column', null, 'row']} alignItems="center">
           <Input value={address} onInput={(event) => setAddress(event)}
-            isDisabled={useOwnAddress} type='text' placeholder='Enter address ...'
+            isDisabled={useOwnAddress} type='text' placeholder='Enter the address to mint to ...'
             width={['100%', null, 400]} mr={[0, null, 4]} mb={[2, null, 0]} />
 
           <Box display="flex" alignItems="center">
-            <Switch id='own-address' value={String(useOwnAddress)} onChange={(event) => setUseOwnAddress(event)} mr={2} />
+            <Switch id='own-address' defaultChecked={true} value={String(useOwnAddress)} onChange={(event) => setUseOwnAddress(event)} mr={2} />
             <FormLabel htmlFor='own-address' whiteSpace="nowrap" mb={0}>
-              Use your own address
+              Mint to your own address
             </FormLabel>
           </Box>
         </FormControl>

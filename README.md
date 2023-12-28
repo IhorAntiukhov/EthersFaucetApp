@@ -21,6 +21,8 @@ npm install
 npm run dev
 ```
 
+5. Create a `.env` file in the root folder and add `VITE_CONTRACT_ADDRESS="your contract address"` to it.
+
 ## Libraries and tools
 
 This app was built using **Vite + React**, **TypeScript**, **Zustand**, **Ethers** and **Chakra UI**.   
